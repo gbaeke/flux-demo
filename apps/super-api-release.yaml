@@ -1,0 +1,24 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: super-api
+  namespace: cluster-config
+spec:
+  chart:
+    spec:
+      chart: super-api
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: super-api
+  install:
+    createNamespace: true
+  interval: 1m0s
+  releaseName: super-api
+  targetNamespace: super-api
+  values:
+    image:
+      tag: 1.0.7
+    replicaCount: 3
+

@@ -1,0 +1,10 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: super-api
+  namespace: cluster-config
+spec:
+  interval: 10m0s
+  url: https://gbaeke.github.io/helm-chart/
+
