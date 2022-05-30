@@ -13,7 +13,10 @@ spec:
         kind: HelmRepository
         name: redis
   install:
+    timeout: 20m
     createNamespace: true
+    remediation:
+      retries: 3
   interval: 1m0s
   releaseName: redis
   targetNamespace: redis
